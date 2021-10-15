@@ -1,0 +1,27 @@
+<!-- How to render templates.-->
+{% extends 'base.html' %} <!-- This is the template that is extended -->
+
+{% block content %} <!-- The name of the block -->
+    <table class="table table-bordered table-hover"> <!--Creates a table. "table-bordered" allows for visible cells to be created in the table and "table-hover" allows for visible hovering.-->
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Stock</th>
+            <th>Daily Rate</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for movie in movies %} <!--Dynamically display titles, genre etc with a for loop. -->
+            <tr>
+              <td>
+                <a href="{% url 'movies:detail' movie.id %}">{{ movie.title }}</a> <!--Anchor tags and href to access detail URLs for each movie. First parameter is name of URL, second parameter is optional and is passed if they exist i.e "movie.id" -->
+              </td>
+              <td>{{ movie.genre }}</td>
+              <td>{{ movie.number_in_stock }}</td>
+              <td>{{ movie.daily_rate }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
