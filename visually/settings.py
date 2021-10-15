@@ -30,7 +30,9 @@ elif os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
 # DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'visually-rents.herokuapp.com/'
+]
 
 
 # Application definition
