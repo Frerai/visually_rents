@@ -31,7 +31,7 @@ elif os.environ.get('DEBUG') == 'FALSE':
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    
+    'visually-rents.herokuapp.com'
 ]
 
 
