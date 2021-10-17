@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-j9=bjp&^=b^=%j1=l^m_tk-_ft_m*t4a%5fs-99q!(*h-&8=j%'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('DEBUG') == 'TRUE':
@@ -45,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # My custom installed apps.
-    'movies.apps.MoviesConfig',  # "movies." is our package, "apps." is our module, "MoviesConfig" is our class we need
+    # "movies." is our package, "apps." is our module, "MoviesConfig" is our class we need
+    'movies.apps.MoviesConfig',
     # to provide the path to.
 ]
 
@@ -65,7 +67,8 @@ ROOT_URLCONF = 'visually.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Tells Django to share this base template across multiple apps
+        # Tells Django to share this base template across multiple apps
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
