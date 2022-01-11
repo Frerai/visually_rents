@@ -47,9 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # My custom installed apps.
-    # "movies." is our package, "apps." is our module, "MoviesConfig" is our class we need
+    # "movies." is our package, "apps." is our module, "MoviesConfig" is our class we need to provide the path to.
     'movies.apps.MoviesConfig',
-    # to provide the path to.
+    "api.apps.ApiConfig",
+
 ]
 
 MIDDLEWARE = [

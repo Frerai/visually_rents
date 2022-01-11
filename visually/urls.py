@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views  # From "." current folder, import "views" module.
+from api.models import MovieResource  # needed to redirect for the api URL pattern
+
+
+movie_resource = MovieResource()  # An instance of this class is needed, before we can map it.
 
 urlpatterns = [
     path('', views.home),  # Empty string is passed here to represent the Home Page, and map it to "views.home".
     path('admin/', admin.site.urls),
     path('movies/', include('movies.urls')),  # Mapping to include the URL configurations for the "movies" app/directory
+    path("api/", include(movie_resource.urls)),
 ]
