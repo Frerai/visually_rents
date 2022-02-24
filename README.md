@@ -1,4 +1,4 @@
-"# visually_rents" 
+# visually_rents 
 This is a simple attempt at creating an application using Django framework, and can be viewed at:
 
 https://visually-rents.herokuapp.com/movies/ 
